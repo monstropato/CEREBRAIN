@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 1722776916907266943}
   - component: {fileID: 7969732069922854094}
   - component: {fileID: 1854602683}
+  - component: {fileID: 2103841030370375597}
   - component: {fileID: 7738798563825635641}
   - component: {fileID: 8286624497010814713}
   - component: {fileID: -2227070878871497259}
@@ -425,12 +426,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1c3281eed63b64c8a15b34fe095e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainEngineSound: {fileID: 8300000, guid: bf2151f535ce68745b2a52db3dbf6924, type: 3}
-  deathSound: {fileID: 8300000, guid: e286bb9c5c998ec4e9b2ab2b478dba5d, type: 3}
-  victorySound: {fileID: 8300000, guid: 7cf3499d15b876d4281f6add526a594e, type: 3}
-  mainEngineParticle: {fileID: 198100717509165579}
-  deathParticle: {fileID: 198204747566403506}
-  victoryParticle: {fileID: 4812989589953551103}
+--- !u!114 &2103841030370375597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830377865991534982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9898773c438a75a42b9b2a4eed797dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7738798563825635641
 MonoBehaviour:
   m_ObjectHideFlags: 0

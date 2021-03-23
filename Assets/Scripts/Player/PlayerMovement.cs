@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(Player))] 
 public class PlayerMovement : MonoBehaviour
 {
     //CONFIG STATS
@@ -15,29 +15,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    void Update()
-    {
-        if (!player.isTransitioning)
-        {
-            RespondToThrustInput();
-            RespondToRotateInput();
-        }
-    }
-
-    //Manage Inputs
-    private void RespondToThrustInput()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            ApplyThrust();
-        }
-        else
-        {
-            player.playerFX.StopThrustEffects();
-        }
-    }
-
-    private void ApplyThrust()
+    public void ApplyThrust()
     {
         float thrustSpeed = (thrustForce * 10) * Time.deltaTime;
 
@@ -45,19 +23,11 @@ public class PlayerMovement : MonoBehaviour
         player.playerFX.PlayThrustEffects();
     }
 
-    private void RespondToRotateInput()
+    public void Rotate(int direction)
     {
         float rotationSpeed = rotationForce * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Rotate(Vector3.forward * rotationSpeed);
-            player.rigidBody.angularVelocity = Vector3.zero;
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Rotate(-Vector3.forward * rotationSpeed);
-            player.rigidBody.angularVelocity = Vector3.zero;
-        }
+        transform.Rotate((Vector3.forward * direction) * rotationSpeed);
+        player.rigidBody.angularVelocity = Vector3.zero;
     }
 }

@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-
+    //CONFIG PARAMS
     [SerializeField] float loadLevelDelay = 1f;
+
+    //STATE
+    //int currentScene;
 
 
     public void LoadStartingScene()
