@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[DisallowMultipleComponent]
+[RequireComponent(typeof(Player))]
 public class PlayerMovement : MonoBehaviour
 {
     //CONFIG STATS
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            player.StopMainEngine();
+            player.playerFX.StopThrustEffects();
         }
     }
 
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         float thrustSpeed = (thrustForce * 10) * Time.deltaTime;
 
         player.rigidBody.AddRelativeForce(Vector3.up * thrustSpeed);
-        player.PlayThrustEffects();
+        player.playerFX.PlayThrustEffects();
     }
 
     private void RespondToRotateInput()

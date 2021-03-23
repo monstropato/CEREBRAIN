@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-[DisallowMultipleComponent]
+[RequireComponent(typeof(Player))]
 public class PlayerCollision : MonoBehaviour
 {
     //STATES
-    bool collisionsDisabled = false;
+    internal bool collisionsDisabled = false;
 
     //CACHED REFERENCES
     Player player;
@@ -36,7 +36,6 @@ public class PlayerCollision : MonoBehaviour
                 break;
         }
     }
-
 
     public void Disablecollisions() //for debugging purposes
     {

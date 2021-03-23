@@ -8,7 +8,6 @@ public class Debugger : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
-        playerCollision = player.GetComponent<PlayerCollision>();
     }
 
     void Update()
@@ -27,7 +26,8 @@ public class Debugger : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            playerCollision.Disablecollisions();
+            player.playerCollision.Disablecollisions();
+            Debug.Log("Are collisions disabled? " + player.playerCollision.collisionsDisabled);
         }
     }
 }
