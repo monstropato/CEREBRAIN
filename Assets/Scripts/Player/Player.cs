@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Rocket : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    //config params
+    //CONFIG PARAMS
     [Header("Rocket Controls")]
     [SerializeField] float rotationForce = 100f;
     [SerializeField] float thrustForce = 100f;
@@ -16,21 +16,47 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem deathParticle;
     [SerializeField] ParticleSystem victoryParticle;
 
-    //state
+    //STATES
     bool isTransitioning = false;
     bool collisionsDisabled = false;
 
-    //cached references
+    //INTERNAL CACHED REFERENCES
     Rigidbody rigidBody;
     AudioSource audioSource;
+    PlayerInput playerInput;
+    PlayerMovement playerMovement;
+    PlayerCollision playerCollision;
+
+    //EXTERNAL CACHED REFERENCES
     SceneLoader sceneLoader;
 
+
+    //START
     void Start()
+    {
+        GetCachedReferences();
+        CallCustomStarts();
+    }
+
+    private void GetCachedReferences()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+
+        playerInput = GetComponent<PlayerInput>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerCollision = GetComponent<PlayerCollision>();
+
         sceneLoader = FindObjectOfType<SceneLoader>();
     }
+
+    private void CallCustomStarts()
+    {
+        playerInput.CustomStart();
+        playerMovement.CustomStart();
+        playerCollision.CustomStart();
+    }
+
 
     void Update()
     {
@@ -40,7 +66,6 @@ public class Rocket : MonoBehaviour
             RespondToRotateInput();
         }
     }
-
 
     //Manage Inputs
     private void RespondToThrustInput()

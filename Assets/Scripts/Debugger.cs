@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
-    Rocket rocket;
+    Player rocket;
 
     private void Start()
     {
-        rocket = FindObjectOfType<Rocket>();
+        rocket = FindObjectOfType<Player>();
     }
     void Update()
     {
