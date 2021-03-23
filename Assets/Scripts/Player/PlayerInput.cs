@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[DisallowMultipleComponent]
 public class PlayerInput : MonoBehaviour
 {
     //CACHED REFERENCES
@@ -9,5 +10,4 @@ public class PlayerInput : MonoBehaviour
     {
         player = GetComponent<Player>();
     }
-
 }
